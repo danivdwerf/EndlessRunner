@@ -45,7 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\_Scripts\Flash.cs" />
+     <Compile Include="Assets\_Scripts\GameController\SceneSwitcher.cs" />
+     <Compile Include="Assets\_Scripts\GameController\Score.cs" />
+     <Compile Include="Assets\_Scripts\Player\PlayerDeath.cs" />
+     <Compile Include="Assets\_Scripts\Player\PlayerMovement.cs" />
+     <Compile Include="Assets\_Scripts\SpawnObstacles.cs" />
+     <Compile Include="Assets\_Scripts\Track\TrackBuilder.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
