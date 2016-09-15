@@ -56,11 +56,11 @@ public class PlayerMovement : MonoBehaviour
             side_speed = 0;
         }
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.S))
         {
+            transform.localScale = new Vector3(1, 0.2f, 1);
             if (audio_source.clip != slide&&!isFalling&&!dead)
             {
-                transform.localScale = new Vector3(1, 0.2f, 1);
                 audio_source.Stop();
                 audio_source.clip = slide;
                 audio_source.loop = true;
