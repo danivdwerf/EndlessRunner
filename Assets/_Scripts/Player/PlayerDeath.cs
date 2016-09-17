@@ -11,17 +11,6 @@ public class PlayerDeath : MonoBehaviour
         }
     }
 
-    /*
-    private void StopGame()
-    {
-        PlayerMovement.player_movement.Hurt();
-        Score.score_script.enabled = false;
-        PlayerMovement.player_movement.enabled = false;
-        TrackBuilder.track_builder.enabled = false;
-
-    } 
-    */
-
     IEnumerator StopGame()
     {
         PlayerMovement.player_movement.Hurt();

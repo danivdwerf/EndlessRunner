@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_Scripts\Flash.cs" />
+     <Compile Include="Assets\_Scripts\GameController\Achievement.cs" />
      <Compile Include="Assets\_Scripts\GameController\SceneSwitcher.cs" />
      <Compile Include="Assets\_Scripts\GameController\Score.cs" />
      <Compile Include="Assets\_Scripts\Player\PlayerDeath.cs" />

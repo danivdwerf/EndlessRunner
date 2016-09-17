@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpheight;
     private bool isFalling;
     private bool dead;
+    private bool first_jump;
     private AudioSource audio_source;
     [SerializeField] private AudioClip running; 
     [SerializeField] private AudioClip jump;
@@ -22,14 +23,14 @@ public class PlayerMovement : MonoBehaviour
         rigidBody = GetComponent<Rigidbody>();
         audio_source = GetComponent<AudioSource>();
         dead = false;
+
+        first_jump = false;
         player_movement = this; 
-        speed = 20f; //make it 20!
+        speed = 20f;
         isFalling = true;
         jumpheight = 25f;
         side_speed = 0;
-        audio_source.clip = running;
-        audio_source.Play();
-        audio_source.loop = true;
+        Play_Audio(running, true);
 	}
 
 	private void Update () 
@@ -37,11 +38,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)&&!isFalling)
         {
             rigidBody.velocity = new Vector3(0f, jumpheight, 0f);
-            audio_source.Stop();
-            audio_source.clip = jump;
-            audio_source.loop = false;
-            audio_source.Play();
+            Play_Audio(jump, false);
             isFalling = true;
+            if (!first_jump)
+            {
+                first_jump = true;
+                //Achievement.achievement.FirstJump();
+            }
         }
         if (Input.GetKey(KeyCode.A))
         {
@@ -61,10 +64,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(1, 0.2f, 1);
             if (audio_source.clip != slide&&!isFalling&&!dead)
             {
-                audio_source.Stop();
-                audio_source.clip = slide;
-                audio_source.loop = true;
-                audio_source.Play();
+                Play_Audio(slide, true);
             }
         }
         else
@@ -72,10 +72,7 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
             if (audio_source.clip != running&&!isFalling&&!dead)
             {
-                audio_source.Stop();
-                audio_source.clip = running;
-                audio_source.loop = true;
-                audio_source.Play();
+                Play_Audio(running, true);
             }
         }
 	}
@@ -85,10 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Ground")&&isFalling&&!dead)
         {
             isFalling = false;
-            audio_source.Stop();
-            audio_source.clip = running;
-            audio_source.loop = true;
-            audio_source.Play();
+            Play_Audio(running, true);
         }
     }
 
@@ -105,5 +99,13 @@ public class PlayerMovement : MonoBehaviour
         audio_source.Stop();
         audio_source.loop = false;
         audio_source.PlayOneShot(hurt);
+    }
+
+    private void Play_Audio(AudioClip new_clip, bool loop)
+    {
+        audio_source.Stop();
+        audio_source.clip = new_clip;
+        audio_source.loop = loop;
+        audio_source.Play();
     }
 }

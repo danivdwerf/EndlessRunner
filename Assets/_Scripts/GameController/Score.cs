@@ -6,8 +6,6 @@ public class Score : MonoBehaviour
 {
     [SerializeField]private Text scoreText;
     [SerializeField]private Text highScoreText;
-    [SerializeField] private AudioClip oh_wow;
-    private AudioSource source;
     public static Score score_script;
 
     private int score;
@@ -17,8 +15,8 @@ public class Score : MonoBehaviour
     void Start()
     {
         score_script = this;
+        PlayerPrefs.SetFloat("High Score", 0);
         highScore = PlayerPrefs.GetFloat("High Score");
-        source = GetComponent<AudioSource>();
         score = 0;
         better_score = false;
         UpdateScoreUI();
@@ -34,7 +32,8 @@ public class Score : MonoBehaviour
         }
         if (score == highScore&&!better_score)
         {
-            PlayAudio();
+            Achievement.achievement.NewHighscore();
+            better_score = true;
         }
     }
 
@@ -43,11 +42,5 @@ public class Score : MonoBehaviour
         score++;
         scoreText.text = "Score: " + score;
         highScoreText.text = "HighScore: " + highScore;
-    }
-
-    private void PlayAudio()
-    {
-        better_score = true;
-        source.PlayOneShot(oh_wow);
     }
 }
