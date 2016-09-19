@@ -3,6 +3,12 @@ using System.Collections;
 
 public class PlayerDeath : MonoBehaviour 
 {
+    [SerializeField]private AudioClip hurt;
+    private PlayerAudio playerAudio;
+    private void Start()
+    {
+        playerAudio = GameObject.FindObjectOfType<PlayerAudio>();
+    }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Wall"))
@@ -13,7 +19,7 @@ public class PlayerDeath : MonoBehaviour
 
     IEnumerator StopGame()
     {
-        PlayerMovement.player_movement.Hurt();
+        playerAudio.PlayAudio(hurt, false);
         Score.score_script.enabled = false;
         PlayerMovement.player_movement.enabled = false;
         TrackBuilder.track_builder.enabled = false;

@@ -6,6 +6,8 @@ public class Score : MonoBehaviour
 {
     [SerializeField]private Text scoreText;
     [SerializeField]private Text highScoreText;
+    [SerializeField]private string uppertText;
+    [SerializeField]private string lowerText;
     public static Score score_script;
 
     private int score;
@@ -15,7 +17,6 @@ public class Score : MonoBehaviour
     void Start()
     {
         score_script = this;
-        PlayerPrefs.SetFloat("High Score", 0);
         highScore = PlayerPrefs.GetFloat("High Score");
         score = 0;
         better_score = false;
@@ -40,7 +41,7 @@ public class Score : MonoBehaviour
     void UpdateScoreUI()
     {
         score++;
-        scoreText.text = "Score: " + score;
-        highScoreText.text = "HighScore: " + highScore;
+        scoreText.text = uppertText +' '+ score;
+        highScoreText.text = lowerText +' '+  highScore;
     }
 }
