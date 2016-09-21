@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TrackBuilder : MonoBehaviour 
+public class TrackBuilder : MonoBehaviour
 {
 
     public GameObject[] Tracks;
