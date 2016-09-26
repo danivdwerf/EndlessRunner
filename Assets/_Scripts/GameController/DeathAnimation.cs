@@ -4,19 +4,19 @@ using UnityEngine.UI;
 
 public class DeathAnimation : MonoBehaviour
 {
-    [SerializeField]private Image death_object;
+    [SerializeField]private Image deathObject;
     
-    private Animation dAnim;
+    private Animation anim;
 
     public static DeathAnimation deathAnimation;
 
     void Start () {
         deathAnimation = this;
-        dAnim = death_object.GetComponent<Animation>();
+        anim = deathObject.GetComponent<Animation>();
     }
 
     public void Death()
     {
-        dAnim.Play();
+        anim.Play();
     }
 }

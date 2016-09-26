@@ -3,23 +3,23 @@ using System.Collections;
 
 public class PlayerAudio : MonoBehaviour 
 {
-    [HideInInspector] public AudioSource audio_source;
+    [HideInInspector] public AudioSource source;
 
-	void Start () 
+	private void Start () 
     {
-        audio_source = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+        source = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
 	}
 
     public void PlayAudio(AudioClip newClip, bool loop)
     {
-        if (audio_source != null)
+        if (source != null)
         {
-            if (audio_source.clip != newClip)
+            if (source.clip != newClip)
             {
-                audio_source.Stop();
-                audio_source.clip = newClip;
-                audio_source.loop = loop;
-                audio_source.Play();
+                source.Stop();
+                source.clip = newClip;
+                source.loop = loop;
+                source.Play();
             }
         }
     }

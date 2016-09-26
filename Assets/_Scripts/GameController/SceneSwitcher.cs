@@ -9,12 +9,12 @@ public class SceneSwitcher : MonoBehaviour
     {
         scene_switcher = this;
     }
-    public void Game_Scene()
+    public void GameScene()
     {
         SceneManager.LoadScene(0);
     }
 
-    public void Retry_Scene()
+    public void RetryScene()
     {
         SceneManager.LoadScene(1);
     }

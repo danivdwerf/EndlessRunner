@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Achievement : MonoBehaviour 
 {
-    [SerializeField]private Image achievement_object;
+    [SerializeField]private Image achievementObject;
 
     private AudioSource source;
     [SerializeField]private AudioClip oh_wow;
@@ -16,7 +16,7 @@ public class Achievement : MonoBehaviour
 	void Start () 
     {
         achievement = this;
-        anim = achievement_object.GetComponent<Animation>(); 
+        anim = achievementObject.GetComponent<Animation>(); 
         source = GetComponent<AudioSource>();
 	}
 

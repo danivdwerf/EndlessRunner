@@ -6,24 +6,22 @@ public class Score : MonoBehaviour
 {
     [SerializeField]private Text scoreText;
     [SerializeField]private Text highScoreText;
-    [SerializeField]private string uppertText;
-    [SerializeField]private string lowerText;
-    public static Score score_script;
 
     private int score;
-    private bool better_score;
+    private bool betterScore;
     private float highScore;
+    public static Score score_script;
 
-    void Start()
+    private void Start()
     {
         score_script = this;
         highScore = PlayerPrefs.GetFloat("High Score");
         score = 0;
-        better_score = false;
+        betterScore = false;
         UpdateScoreUI();
     }
 
-    void Update()
+    private void Update()
     {
         UpdateScoreUI();
         if(score > highScore)
@@ -31,17 +29,17 @@ public class Score : MonoBehaviour
             highScore = score;
             PlayerPrefs.SetFloat("High Score", highScore);
         }
-        if (score == highScore&&!better_score)
+        if (score == highScore&&!betterScore)
         {
             Achievement.achievement.NewHighscore();
-            better_score = true;
+            betterScore = true;
         }
     }
 
-    void UpdateScoreUI()
+    private void UpdateScoreUI()
     {
         score++;
-        scoreText.text = uppertText +' '+ score;
-        highScoreText.text = lowerText +' '+  highScore;
+        scoreText.text = "Score: "+ score;
+        highScoreText.text = "Highscore: "+  highScore; 
     }
 }

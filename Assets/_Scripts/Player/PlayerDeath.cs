@@ -5,6 +5,7 @@ public class PlayerDeath : MonoBehaviour
 {
     [SerializeField]private AudioClip hurt;
     private PlayerAudio playerAudio;
+
     private void Start()
     {
         playerAudio = GameObject.FindObjectOfType<PlayerAudio>();
@@ -23,8 +24,8 @@ public class PlayerDeath : MonoBehaviour
         playerAudio.PlayAudio(hurt, false);
         Score.score_script.enabled = false;
         PlayerMovement.player_movement.enabled = false;
-        TrackBuilder.track_builder.enabled = false;
+        TrackBuilder.trackBuilder.enabled = false;
         yield return new WaitForSeconds(3f);
-        SceneSwitcher.scene_switcher.Retry_Scene();
+        SceneSwitcher.scene_switcher.RetryScene();
     }
 }
