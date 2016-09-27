@@ -7,7 +7,7 @@ public class PlayerAudio : MonoBehaviour
 
 	private void Start () 
     {
-        source = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
+        source = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<AudioSource>();
 	}
 
     public void PlayAudio(AudioClip newClip, bool loop)

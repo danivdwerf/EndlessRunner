@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class Achievement : MonoBehaviour 
 {
-    [SerializeField]private Image achievementObject;
+    [SerializeField]private Image achievementImage;
 
     private AudioSource source;
-    [SerializeField]private AudioClip oh_wow;
+    [SerializeField]private AudioClip achievementSound;
 
     private Animation anim;
 
@@ -16,13 +16,13 @@ public class Achievement : MonoBehaviour
 	void Start () 
     {
         achievement = this;
-        anim = achievementObject.GetComponent<Animation>(); 
+        anim = achievementImage.GetComponent<Animation>(); 
         source = GetComponent<AudioSource>();
 	}
 
     public void NewHighscore()
     {
-        source.PlayOneShot(oh_wow);
+        source.PlayOneShot(achievementSound);
         anim.Play();
     }
 }

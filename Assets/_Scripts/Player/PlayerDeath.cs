@@ -5,27 +5,21 @@ public class PlayerDeath : MonoBehaviour
 {
     [SerializeField]private AudioClip hurt;
     private PlayerAudio playerAudio;
+    private GameOver gameOver;
 
     private void Start()
     {
         playerAudio = GameObject.FindObjectOfType<PlayerAudio>();
-    }
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Wall"))
-        {
-            StartCoroutine(StopGame());
-            DeathAnimation.deathAnimation.Death();
-        }
+        gameOver = GameObject.FindObjectOfType<GameOver>();
     }
 
-    IEnumerator StopGame()
+    private void OnCollisionEnter(Collision other)
     {
-        playerAudio.PlayAudio(hurt, false);
-        Score.score_script.enabled = false;
-        PlayerMovement.player_movement.enabled = false;
-        TrackBuilder.trackBuilder.enabled = false;
-        yield return new WaitForSeconds(3f);
-        SceneSwitcher.scene_switcher.RetryScene();
+        if (other.gameObject.CompareTag(Tags.wall))
+        {
+            gameOver.StopGameScene();
+            playerAudio.PlayAudio(hurt, false);
+            DeathAnimation.deathAnimation.Death();
+        }
     }
 }

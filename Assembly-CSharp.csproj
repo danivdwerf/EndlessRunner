@@ -48,10 +48,13 @@
      <Compile Include="Assets\_Scripts\Flash.cs" />
      <Compile Include="Assets\_Scripts\GameController\Achievement.cs" />
      <Compile Include="Assets\_Scripts\GameController\DeathAnimation.cs" />
+     <Compile Include="Assets\_Scripts\GameController\GameOver.cs" />
      <Compile Include="Assets\_Scripts\GameController\PlayerAudio.cs" />
      <Compile Include="Assets\_Scripts\GameController\SceneSwitcher.cs" />
      <Compile Include="Assets\_Scripts\GameController\Score.cs" />
+     <Compile Include="Assets\_Scripts\GameController\Tags.cs" />
      <Compile Include="Assets\_Scripts\Player\PlayerDeath.cs" />
+     <Compile Include="Assets\_Scripts\Player\PlayerInput.cs" />
      <Compile Include="Assets\_Scripts\Player\PlayerMovement.cs" />
      <Compile Include="Assets\_Scripts\SpawnObstacles.cs" />
      <Compile Include="Assets\_Scripts\Track\TrackBuilder.cs" />
