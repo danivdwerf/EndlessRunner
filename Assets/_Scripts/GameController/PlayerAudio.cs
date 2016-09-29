@@ -19,7 +19,7 @@ public class PlayerAudio : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetFloat("volume", 40);
+            PlayerPrefs.SetFloat("volume", 50);
         }
 	}
 
