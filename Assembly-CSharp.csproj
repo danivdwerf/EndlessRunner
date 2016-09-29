@@ -49,6 +49,8 @@
      <Compile Include="Assets\_Scripts\GameController\Achievement.cs" />
      <Compile Include="Assets\_Scripts\GameController\DeathAnimation.cs" />
      <Compile Include="Assets\_Scripts\GameController\GameOver.cs" />
+     <Compile Include="Assets\_Scripts\GameController\PauseInput.cs" />
+     <Compile Include="Assets\_Scripts\GameController\PauseLogic.cs" />
      <Compile Include="Assets\_Scripts\GameController\PlayerAudio.cs" />
      <Compile Include="Assets\_Scripts\GameController\SceneSwitcher.cs" />
      <Compile Include="Assets\_Scripts\GameController\Score.cs" />
