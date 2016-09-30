@@ -13,13 +13,13 @@ public class PlayerAudio : MonoBehaviour
     {
         source = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<AudioSource>();
         playerAudio = this;
-        if (PlayerPrefs.GetFloat("volume") != null)
+        if (PlayerPrefs.GetFloat("volume")==null)
         {
-            volumeSlider.value = PlayerPrefs.GetFloat("volume");
+            PlayerPrefs.SetFloat("volume", 50);
         }
         else
         {
-            PlayerPrefs.SetFloat("volume", 50);
+            volumeSlider.value = PlayerPrefs.GetFloat("volume");
         }
 	}
 

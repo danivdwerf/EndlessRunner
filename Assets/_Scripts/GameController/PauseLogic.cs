@@ -53,12 +53,4 @@ public class PauseLogic : MonoBehaviour
             pausePanel.SetActive(false);
         }
     }
-
-    public void QuitGame()
-    {
-        if (paused)
-        {
-            Debug.Log("START SCENE");
-        }
-    }
 }
