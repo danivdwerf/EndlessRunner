@@ -11,21 +11,19 @@ public class PauseLogic : MonoBehaviour
         pausePanel.SetActive(false);
         paused = false;
         playerAudio = GetComponent<PlayerAudio>();
+        Time.timeScale = 1;
     }
 
     public void GetInput()
     {
-        if (paused)
+        switch (paused)
         {
-            ContinueGame();
-        }
-        else if (!paused)
-        {
-            PauseGame();
-        }
-        else
-        {
-            return;
+            case true: ContinueGame();
+            break;
+            case false: PauseGame();
+            break;
+            default: return;
+            break;
         }
     }
 

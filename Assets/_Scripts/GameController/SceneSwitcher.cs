@@ -24,9 +24,4 @@ public class SceneSwitcher : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
-
-    public void Instructions()
-    {
-        //SceneManager.LoadScene(3);
-    }
 }

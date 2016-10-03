@@ -34,6 +34,18 @@ public class PlayerMovement : MonoBehaviour
         playerAudio.PlayAudio(running, true);
 	}
 
+    public bool Death
+    {
+        get
+        { 
+            return dead;
+        }
+        set
+        { 
+            dead = value;
+        }
+    }
+
     private void FixedUpdate()
     {
         rigidBody.MovePosition(rigidBody.transform.position + transform.forward.normalized * speed * Time.deltaTime);
