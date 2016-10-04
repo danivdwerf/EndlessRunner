@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     private PlayerAudio playerAudio;
     [SerializeField] private AudioClip running; 
-    [SerializeField] private AudioClip jump;
     [SerializeField] private AudioClip slide;
+    [SerializeField] private AudioClip[] jumpSounds;
 
 	void Start () 
     {
@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isFalling)
         {
             rigidBody.velocity = new Vector3(0f, jumpHeight, 0f);
-            playerAudio.PlayAudio(jump, false);
+            playerAudio.PlayAudio(jumpSounds[Random.Range(0,jumpSounds.Length)], false);
             isFalling = true;
         }
     }
