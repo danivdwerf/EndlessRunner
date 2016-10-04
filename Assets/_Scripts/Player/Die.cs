@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerDeath : MonoBehaviour 
+public class Die : MonoBehaviour 
 {
     [SerializeField]private AudioClip hurt;
     private PlayerAudio playerAudio;
@@ -16,14 +16,11 @@ public class PlayerDeath : MonoBehaviour
         playerMovement.Death = false;
     }
 
-    private void OnCollisionEnter(Collision other)
+    public void KillPlayer()
     {
-        if (other.gameObject.CompareTag(Tags.wall))
-        {
-            gameOver.StopGameScene();
-            playerAudio.PlayAudio(hurt, false);
-            playerMovement.Death = true;
-            DeathAnimation.deathAnimation.Death();
-        }
+        gameOver.StopGameScene();
+        playerAudio.PlayAudio(hurt, false);
+        playerMovement.Death = true;
+        DeathAnimation.deathAnimation.Death();
     }
 }
