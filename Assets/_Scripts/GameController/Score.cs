@@ -9,13 +9,13 @@ public class Score : MonoBehaviour
 
     private int score;
     private bool betterScore;
-    private float highScore;
+    private int highScore;
     public static Score score_script;
 
     private void Start()
     {
         score_script = this;
-        highScore = PlayerPrefs.GetFloat("High Score");
+        highScore = PlayerPrefs.GetInt("High Score");
         score = 0;
         betterScore = false;
         UpdateScoreUI();
@@ -24,10 +24,11 @@ public class Score : MonoBehaviour
     private void Update()
     {
         UpdateScoreUI();
+        PlayerPrefs.SetInt("curScore", score);
         if(score > highScore)
         {
             highScore = score;
-            PlayerPrefs.SetFloat("High Score", highScore);
+            PlayerPrefs.SetInt("High Score", highScore);
         }
         if (score == highScore&&!betterScore)
         {
