@@ -6,10 +6,15 @@ public class InstructionPanel : MonoBehaviour
 {
     [SerializeField] private Button instructionButton;
     [SerializeField] private Button backButton; 
+    [SerializeField] private GameObject start;
+    [SerializeField] private GameObject exit;
     [SerializeField] private GameObject instructionPanel;
     private void Start()
     {
         instructionPanel.SetActive(false);
+        start.SetActive(true);
+        exit.SetActive(true);
+        instructionButton.gameObject.SetActive(true);
     }
 
     private void Update()
@@ -21,10 +26,16 @@ public class InstructionPanel : MonoBehaviour
     private void OpenInstruction()
     {
         instructionPanel.SetActive(true);
+        start.SetActive(false);
+        exit.SetActive(false);
+        instructionButton.gameObject.SetActive(false);
     }
 
     private void CloseInstruction()
     {
         instructionPanel.SetActive(false);
+        start.SetActive(true);
+        exit.SetActive(true);
+        instructionButton.gameObject.SetActive(true);
     }
 }
