@@ -5,12 +5,9 @@ using UnityEngine.UI;
 public class Achievement : MonoBehaviour 
 {
     [SerializeField]private Image achievementImage;
-
     private AudioSource source;
     [SerializeField]private AudioClip achievementSound;
-
     private Animation anim;
-
     public static Achievement achievement;
 
 	void Start () 

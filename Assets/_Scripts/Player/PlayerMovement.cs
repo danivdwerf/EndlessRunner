@@ -11,12 +11,11 @@ public class PlayerMovement : MonoBehaviour
     private bool isFalling;
     private bool dead;
 
-    public static PlayerMovement playerMovement;
-
     private PlayerAudio playerAudio;
-    [SerializeField] private AudioClip running; 
-    [SerializeField] private AudioClip slide;
+    [SerializeField] private AudioClip running;
     [SerializeField] private AudioClip[] jumpSounds;
+    [SerializeField] private AudioClip slide;
+    public static PlayerMovement playerMovement;
 
 	void Start () 
     {
@@ -87,12 +86,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag(Tags.ground) && isFalling && !dead)
         {
             isFalling = false;
             playerAudio.PlayAudio(running, true);
+        }
+    }
+
+    private void OnCollisionExit(Collision other)
+    {
+        if (other.gameObject.CompareTag(Tags.ground))
+        {
+            isFalling = true;
         }
     }
 }

@@ -10,7 +10,8 @@ public class DeathAnimation : MonoBehaviour
 
     public static DeathAnimation deathAnimation;
 
-    void Start () {
+    void Start () 
+    {
         deathAnimation = this;
         anim = deathObject.GetComponent<Animation>();
     }

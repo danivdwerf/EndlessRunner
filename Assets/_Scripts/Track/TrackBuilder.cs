@@ -6,18 +6,15 @@ public class TrackBuilder : MonoBehaviour
 
     [SerializeField]private GameObject[] tracks;
     [SerializeField]private Transform trackSpawnerPos;
-    private int trackCount;
     private float newPos;
     public static TrackBuilder trackBuilder;
 
-    private int randomNum;
     private float waitTime;
     private GameObject track;
 
     private void Start () 
     {
         trackBuilder = this;
-        trackCount = 0;
         newPos = 20.0f;
         waitTime = 2.0f;
         Track();
@@ -38,7 +35,6 @@ public class TrackBuilder : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(waitTime);
-        trackCount += 1;
         Track();
     }
 }

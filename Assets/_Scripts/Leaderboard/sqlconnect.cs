@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class sqlconnect : MonoBehaviour
 {
-    private string secretKey = "muchSecret";
+    private string secretKey = "Mustard";
     public string addScoreURL = "http://freetimedev.com/Highscores/setScore.php?"; //ADD A ? TO THE LINK DANI!!!!!!
     public string highscoreURL = "http://freetimedev.com/Highscores/getScore.php"; //DON'T ADD THE FUCKING ? TO THIS LINK DANI
     private md5 md5script;
