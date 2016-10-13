@@ -27,7 +27,6 @@ public class PlayerAudio : MonoBehaviour
     {
         source.volume = volumeSlider.value;
         volumeValue.text = "Volume: "+Mathf.Round(volumeSlider.value * 100);
-        PlayerPrefs.SetFloat("volume", volumeSlider.value);
     }
 
     public void PlayAudio(AudioClip newClip, bool loop)
@@ -36,6 +35,7 @@ public class PlayerAudio : MonoBehaviour
         {
             if (source.clip != newClip)
             {
+                Debug.Log(newClip);
                 source.Stop();
                 source.clip = newClip;
                 source.loop = loop;

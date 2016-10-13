@@ -13,7 +13,7 @@ public class CheckPlayerHeight : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y <= -3&&!playerMovement.Death)
+        if (transform.position.y <= -1&&!playerMovement.Death)
         {
             die.KillPlayer();
         }

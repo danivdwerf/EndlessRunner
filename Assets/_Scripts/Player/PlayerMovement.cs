@@ -11,13 +11,14 @@ public class PlayerMovement : MonoBehaviour
     private bool isFalling;
     private bool dead;
 
-    private PlayerAudio playerAudio;
-    [SerializeField] private AudioClip running;
-    [SerializeField] private AudioClip[] jumpSounds;
-    [SerializeField] private AudioClip slide;
     public static PlayerMovement playerMovement;
 
-	void Start () 
+    private PlayerAudio playerAudio;
+    [SerializeField] private AudioClip running; 
+    [SerializeField] private AudioClip slide;
+    [SerializeField] private AudioClip[] jumpSounds;
+
+    void Start () 
     {
         rigidBody = GetComponent<Rigidbody>();
         playerAudio = GameObject.FindObjectOfType<PlayerAudio>();
@@ -31,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         sideSpeed = 0;
 
         playerAudio.PlayAudio(running, true);
-	}
+    }
 
     public bool Death
     {
@@ -86,20 +87,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag(Tags.ground) && isFalling && !dead)
         {
             isFalling = false;
             playerAudio.PlayAudio(running, true);
-        }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (other.gameObject.CompareTag(Tags.ground))
-        {
-            isFalling = true;
         }
     }
 }
