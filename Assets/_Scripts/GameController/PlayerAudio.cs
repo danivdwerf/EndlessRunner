@@ -13,9 +13,9 @@ public class PlayerAudio : MonoBehaviour
     {
         source = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<AudioSource>();
         playerAudio = this;
-        if (PlayerPrefs.GetFloat("volume")==null)
+        if (!PlayerPrefs.HasKey("volume"))
         {
-            PlayerPrefs.SetFloat("volume", 50);
+            PlayerPrefs.SetFloat("volume", 0.5f);
         }
         else
         {

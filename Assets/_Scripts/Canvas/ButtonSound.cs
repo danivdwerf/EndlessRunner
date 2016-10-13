@@ -9,7 +9,7 @@ public class ButtonSound : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         audioSource.clip = clickSound;
-        if (PlayerPrefs.GetFloat("volume")==null)
+        if (PlayerPrefs.HasKey("volume"))
         {
             PlayerPrefs.SetFloat("volume", 50);
         }

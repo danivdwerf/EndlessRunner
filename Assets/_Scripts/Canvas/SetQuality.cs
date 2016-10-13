@@ -13,7 +13,7 @@ public class SetQuality : MonoBehaviour
     private void Start()
     {
         qualityUI = GetComponent<QualityUI>();
-        if (PlayerPrefs.GetInt("quality") == null)
+        if (PlayerPrefs.HasKey("quality"))
         {
             PlayerPrefs.SetInt("quality", 1);
         }

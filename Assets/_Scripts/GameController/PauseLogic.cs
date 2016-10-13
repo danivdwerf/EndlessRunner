@@ -23,7 +23,6 @@ public class PauseLogic : MonoBehaviour
             case false: PauseGame();
             break;
             default: return;
-            break;
         }
     }
 
