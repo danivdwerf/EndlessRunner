@@ -13,19 +13,20 @@ public class PlayerAudio : MonoBehaviour
     {
         source = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<AudioSource>();
         playerAudio = this;
-        if (!PlayerPrefs.HasKey("volume"))
+        if (PlayerPrefs.HasKey("volume"))
         {
-            PlayerPrefs.SetFloat("volume", 0.5f);
+            volumeSlider.value = PlayerPrefs.GetFloat("volume");
         }
         else
         {
-            volumeSlider.value = PlayerPrefs.GetFloat("volume");
+            PlayerPrefs.SetFloat("volume", 0.5f);
         }
 	}
 
     void Update()
     {
-        source.volume = volumeSlider.value;
+        PlayerPrefs.SetFloat("volume", volumeSlider.value);
+        source.volume = volumeSlider.value = PlayerPrefs.GetFloat("volume");
         volumeValue.text = "Volume: "+Mathf.Round(volumeSlider.value * 100);
     }
 
@@ -35,7 +36,6 @@ public class PlayerAudio : MonoBehaviour
         {
             if (source.clip != newClip)
             {
-                Debug.Log(newClip);
                 source.Stop();
                 source.clip = newClip;
                 source.loop = loop;
