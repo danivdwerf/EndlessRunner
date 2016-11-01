@@ -23,7 +23,6 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        UpdateScoreUI();
         PlayerPrefs.SetInt("curScore", score);
         if(score > highScore)
         {
@@ -42,5 +41,9 @@ public class Score : MonoBehaviour
         score++;
         scoreText.text = "Score: "+ score;
         highScoreText.text = "Highscore: "+  highScore; 
+    }
+    private void FixedUpdate()
+    {
+        UpdateScoreUI();
     }
 }
